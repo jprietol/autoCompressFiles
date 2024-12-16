@@ -74,10 +74,9 @@ CompressFiles(){
         return
     fi
 
-    if [ $(find compilation.$(expr $idx - 1).tar.gz -ctime -7) ];then
-        #Create the next files each 7 days
-        createHistory $idx 
-        find .  -maxdepth 1 -type f -! -name "*.tar.gz" -!  -name "history.txt" | tar -czf compilation.$idx.tar.gz -T -
+    if [ $(find compilation.$(expr $idx - 1).tar.gz -ctime +2) ];then
+        #Create the next files each 2 days
+        createHistory $idx
 
         #Create the compress file and Delete the original files after to make the compilation
         find .  -maxdepth 1 -type f  -!  -name "history.txt" | tar -czf compilation.$idx.tar.gz -T - && \
