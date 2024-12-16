@@ -9,8 +9,9 @@ createFolder(){
 
     local PATH_INTERN="$PATH_DESTINY/$1"
     if [ ! -d "$PATH_INTERN" ]; then
-        #echo "Path does not found"
+
         mkdir "$PATH_INTERN"
+
     fi
     return
 }
@@ -89,7 +90,6 @@ CompressFiles(){
 
 
 #The script start here
-#Creating folders.
 for i in ${GENERAL_FORLDERS[@]};
 do
     createFolder "$i"
