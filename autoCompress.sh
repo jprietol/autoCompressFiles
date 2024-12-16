@@ -4,7 +4,6 @@ PATH_DESTINY="/home/xtashirox/Projects/organizations"
 cd $PATH_DESTINY
 
 GENERAL_FORLDERS=("Videos" "Musica" "Documentos" "Photos" "Otros")
-GENERAL_INDEX=4
 
 createFolder(){
 
@@ -18,12 +17,12 @@ createFolder(){
 
 organizedFolder(){
 
-    IFS=$'\n' # Cambiar el delimitador de espacio por una nueva línea
+    IFS=$'\n' #Chenges the delimeter by '\n'
     for i in $(find . -maxdepth 1 -type f -regex ''$2'');
     do
         mv "$i" "$PATH_DESTINY/$1" 
     done
-    IFS=' ' # Restaurar el delimitador de espacio por defecto
+    IFS=' ' #Chenges the delimeter by ' '
     return
 
 }
